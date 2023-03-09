@@ -12,3 +12,27 @@ app.get('/test', function (req, res) {            ##/test파라미터 request를
 //////cmd
 npm install -g supervisor : supervisor 를 설치한다.
 supervisor 파일.js      // 내용 수정시 자동으로 서버를 재시작해주는 명령어
+
+
+//////cmd
+npm install mysql : mysql라이브러리를 설치한다.
+
+
+
+*********
+var mysql = require('mysql'); ## mysql 함수 지정
+var connection = mysql.createConnection({ ## connection 함수 지정 = mysql에서 커넥션을 생성한다.
+  host  : 'localhost',  ## host는 localhost로 지정
+  user  : 'root',   ## user은 root로 지정(dbroot)
+  password  : '0000',   ## password은 root password
+  database  : 'webprj'    ##database는 스키마 지정
+});
+
+connection.connect();   ## 커넥션정보를 통해 연결
+
+connection.query('select 1 + 1 as solution', function (error, results, fields) {    ## 쿼리에 연결하겟다고 선언
+  if (error) throw error;   ##에러를 던진다는 조건
+  console.log('the solution is: ', results[0].solution);      ##몇번솔류션인지 말하도록 설정
+});
+
+connection.end();   ##커넥션정보를 끝낸다.
