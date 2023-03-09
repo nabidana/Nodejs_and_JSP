@@ -5,3 +5,10 @@ var server = http.createServer(app).listen(80);     ##80번포트의 localhost�
 app.get('/test', function (req, res) {            ##/test파라미터 request를 보낸다.
   res.send("hello world");                      ## response에 "hello world"를 담는다.
 });
+
+
+
+
+//////cmd
+npm install -g supervisor : supervisor 를 설치한다.
+supervisor 파일.js      // 내용 수정시 자동으로 서버를 재시작해주는 명령어
