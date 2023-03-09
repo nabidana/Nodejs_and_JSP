@@ -1,0 +1,7 @@
+var express = require('express');     ##require : 사용하겟다는 뜻
+var http = require('http');
+var app = express();
+var server = http.createServer(app).listen(80);     ##80번포트의 localhost에 서버를 오픈햇다.
+app.get('/test', function (req, res) {            ##/test파라미터 request를 보낸다.
+  res.send("hello world");                      ## response에 "hello world"를 담는다.
+});
