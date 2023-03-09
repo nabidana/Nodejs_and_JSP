@@ -30,9 +30,9 @@ var connection = mysql.createConnection({ ## connection 함수 지정 = mysql에
 
 connection.connect();   ## 커넥션정보를 통해 연결
 
-connection.query('select 1 + 1 as solution', function (error, results, fields) {    ## 쿼리에 연결하겟다고 선언
-  if (error) throw error;   ##에러를 던진다는 조건
-  console.log('the solution is: ', results[0].solution);      ##몇번솔류션인지 말하도록 설정
+connection.query('select 1 + 1 as solution', function (error, results, fields) {    ## 쿼리에 연결하겟다고 선언 'select 1+1 as solution'에는 쿼리문을 입력한다.
+  if (error) throw error;   ##에러를 던진다면
+  console.log('the solution is: ', results[0].solution);      ##결과값을 콘솔에 찍는다. console.log(results) 를 해주면 된다.
 });
 
 connection.end();   ##커넥션정보를 끝낸다.
